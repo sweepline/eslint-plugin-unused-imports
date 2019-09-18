@@ -1,0 +1,27 @@
+{
+  "name": "eslint-plugin-unused-imports",
+  "version": "0.0.2",
+  "description": "Report and remove unused es6 modules",
+  "keywords": [
+    "eslint",
+    "eslintplugin",
+    "eslint-plugin"
+  ],
+  "author": "Mikkel Holmer Pedersen",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "mocha tests --recursive"
+  },
+  "dependencies": {
+    "requireindex": "~1.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.3.0",
+    "eslint-rule-composer": "^0.3.0",
+    "mocha": "^3.5.3"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "license": "ISC"
+}
