@@ -1,4 +1,4 @@
-# eslint-plugin-eslint-unused-import
+# eslint-plugin-unused-imports
 
 Find and remove unused es6 modules
 
