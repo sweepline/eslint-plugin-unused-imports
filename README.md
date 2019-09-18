@@ -10,42 +10,39 @@ You'll first need to install [ESLint](http://eslint.org):
 $ npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-eslint-unused-import`:
+Next, install `eslint-plugin-unused-import`:
 
 ```
-$ npm install eslint-plugin-eslint-unused-import --save-dev
+$ npm install eslint-plugin-unused-import --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-eslint-unused-import` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-unused-import` globally.
 
 ## Usage
 
-Add `eslint-unused-import` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `unused-import` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
-    "plugins": [
-        "eslint-unused-import"
-    ]
+	"plugins": ["unused-imports"]
 }
 ```
 
-
 Then configure the rules you want to use under the rules section.
+
+e.g.
 
 ```json
 {
-    "rules": {
-        "eslint-unused-import/rule-name": 2
-    }
+	"rules": {
+		"no-unused-vars": "off",
+		"unused-imports/no-unused-imports": 2,
+		"unused-imports/no-unused-vars": 1
+	}
 }
 ```
 
 ## Supported Rules
 
-* Fill in provided rules here
-
-
-
-
-
+- `no-unused-imports`
+- `no-unused-vars`
