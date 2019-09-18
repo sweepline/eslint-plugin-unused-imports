@@ -46,3 +46,5 @@ e.g.
 
 - `no-unused-imports`
 - `no-unused-vars`
+- `no-unused-imports-ts`
+- `no-unused-vars-ts`
