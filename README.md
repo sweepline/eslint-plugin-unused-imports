@@ -1,4 +1,4 @@
-# eslint-plugin-eslint-unused-import
+# eslint-plugin-unused-imports
 
 Find and remove unused es6 modules
 
@@ -52,3 +52,5 @@ e.g.
 
 - `no-unused-imports`
 - `no-unused-vars`
+- `no-unused-imports-ts`
+- `no-unused-vars-ts`
