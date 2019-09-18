@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-unused-imports",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Report and remove unused es6 modules",
   "keywords": [
     "eslint",
@@ -13,11 +13,16 @@
     "test": "mocha tests --recursive"
   },
   "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.3.0",
     "eslint": "^6.3.0",
     "eslint-rule-composer": "^0.3.0",
-    "requireindex": "~1.1.0"
+    "requireindex": "~1.1.0",
+    "typescript": "^3.6.3"
   },
   "devDependencies": {
+    "@typescript-eslint/parser": "^2.3.0",
+    "@types/eslint": "^6.1.1",
+    "@types/node": "^12.7.5",
     "mocha": "^3.5.3"
   },
   "engines": {

@@ -2,6 +2,12 @@
 
 Find and remove unused es6 modules
 
+## Typescript
+
+If running [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) please use the `-ts`
+extension on your rules to make this also leverage type information (otherwise the autofixer will remove
+imports only used for type information).
+
 ## Installation
 
 You'll first need to install [ESLint](http://eslint.org):
