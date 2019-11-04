@@ -16,17 +16,17 @@ You'll first need to install [ESLint](http://eslint.org):
 $ npm i eslint --save-dev
 ```
 
-Next, install `eslint-plugin-unused-import`:
+Next, install `eslint-plugin-unused-imports`:
 
 ```
-$ npm install eslint-plugin-unused-import --save-dev
+$ npm install eslint-plugin-unused-imports --save-dev
 ```
 
-**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-unused-import` globally.
+**Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-unused-imports` globally.
 
 ## Usage
 
-Add `unused-import` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `unused-imports` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
 ```json
 {
