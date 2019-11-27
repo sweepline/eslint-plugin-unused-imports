@@ -5,7 +5,11 @@
   "keywords": [
     "eslint",
     "eslintplugin",
-    "eslint-plugin"
+    "eslint-plugin",
+    "import",
+    "unused",
+    "modules",
+    "autofix"
   ],
   "author": "Mikkel Holmer Pedersen",
   "main": "lib/index.js",
