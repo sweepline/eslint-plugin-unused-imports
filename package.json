@@ -33,7 +33,7 @@
     "node": ">=0.10.0"
   },
   "license": "MIT",
-  "repository": "https://github.com/mholmerp/eslint-plugin-unused-imports",
-  "homepage": "https://github.com/mholmerp/eslint-plugin-unused-imports",
-  "bugs": "https://github.com/mholmerp/eslint-plugin-unused-imports/issues/"
+  "repository": "https://github.com/sweepline/eslint-plugin-unused-imports",
+  "homepage": "https://github.com/sweepline/eslint-plugin-unused-imports",
+  "bugs": "https://github.com/sweepline/eslint-plugin-unused-imports/issues/"
 }
