@@ -6,7 +6,7 @@ Find and remove unused es6 modules
 
 If running [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) please use the `-ts`
 extension on your rules to make this also leverage type information (otherwise the autofixer will remove
-imports only used for type information).
+imports only used for type information). There is an example in the Usage section below.
 
 ## Installation
 
@@ -44,6 +44,18 @@ e.g.
 		"no-unused-vars": "off",
 		"unused-imports/no-unused-imports": 2,
 		"unused-imports/no-unused-vars": 1
+	}
+}
+```
+
+Or, if using TypeScript:
+
+```json
+{
+	"rules": {
+		"@typescript-eslint/no-unused-vars": "off",
+		"unused-imports/no-unused-imports-ts": 2,
+		"unused-imports/no-unused-vars-ts": 1
 	}
 }
 ```
