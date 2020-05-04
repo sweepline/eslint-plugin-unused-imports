@@ -34,16 +34,17 @@ Add `unused-imports` to the plugins section of your `.eslintrc` configuration fi
 }
 ```
 
-Then configure the rules you want to use under the rules section.
-
-e.g.
+Then configure the rules you want to use under the rules section. I can recommend adding a check for underscores, e.g.
 
 ```json
 {
 	"rules": {
 		"no-unused-vars": "off",
-		"unused-imports/no-unused-imports": 2,
-		"unused-imports/no-unused-vars": 1
+		"unused-imports/no-unused-imports": "error",
+		"unused-imports/no-unused-vars": [
+			"warn",
+			{ vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
+		],
 	}
 }
 ```
@@ -54,8 +55,11 @@ Or, if using TypeScript:
 {
 	"rules": {
 		"@typescript-eslint/no-unused-vars": "off",
-		"unused-imports/no-unused-imports-ts": 2,
-		"unused-imports/no-unused-vars-ts": 1
+		"unused-imports/no-unused-imports-ts": "error",
+		"unused-imports/no-unused-vars-ts": [
+			"warn",
+			{ vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
+		],
 	}
 }
 ```
