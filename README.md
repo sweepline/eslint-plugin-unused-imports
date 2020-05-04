@@ -1,12 +1,16 @@
 # eslint-plugin-unused-imports
 
-Find and remove unused es6 modules
+Find and remove unused es6 modules. This plugin composes the rules of other plugins so be aware that the other plugins needs to report correctly for this to do so.
 
 ## Typescript
 
 If running [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) please use the `-ts`
 extension on your rules to make this also leverage type information (otherwise the autofixer will remove
 imports only used for type information). There is an example in the Usage section below.
+
+## React
+
+If writing react code you need to install `eslint-plugin-react` and enable the two rules `react/jsx-uses-react` and `react/jsx-uses-vars`. Otherwise all imports for components will be reported unused.
 
 ## Installation
 
