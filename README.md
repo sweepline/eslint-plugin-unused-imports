@@ -16,14 +16,14 @@ If writing react code you need to install `eslint-plugin-react` and enable the t
 
 You'll first need to install [ESLint](http://eslint.org):
 
-```
-$ npm i eslint --save-dev
+```bash
+npm i eslint --save-dev
 ```
 
 Next, install `eslint-plugin-unused-imports`:
 
-```
-$ npm install eslint-plugin-unused-imports --save-dev
+```bash
+npm install eslint-plugin-unused-imports --save-dev
 ```
 
 **Note:** If you installed ESLint globally (using the `-g` flag) then you must also install `eslint-plugin-unused-imports` globally.
@@ -34,7 +34,7 @@ Add `unused-imports` to the plugins section of your `.eslintrc` configuration fi
 
 ```json
 {
-	"plugins": ["unused-imports"]
+ "plugins": ["unused-imports"]
 }
 ```
 
@@ -42,14 +42,14 @@ Then configure the rules you want to use under the rules section. I can recommen
 
 ```json
 {
-	"rules": {
-		"no-unused-vars": "off",
-		"unused-imports/no-unused-imports": "error",
-		"unused-imports/no-unused-vars": [
-			"warn",
-			{ vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
-		],
-	}
+ "rules": {
+  "no-unused-vars": "off",
+  "unused-imports/no-unused-imports": "error",
+  "unused-imports/no-unused-vars": [
+   "warn",
+   { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" },
+  ],
+ }
 }
 ```
 
@@ -57,14 +57,14 @@ Or, if using TypeScript:
 
 ```json
 {
-	"rules": {
-		"@typescript-eslint/no-unused-vars": "off",
-		"unused-imports/no-unused-imports-ts": "error",
-		"unused-imports/no-unused-vars-ts": [
-			"warn",
-			{ vars: "all", varsIgnorePattern: "^_", args: "after-used", argsIgnorePattern: "^_" },
-		],
-	}
+ "rules": {
+  "@typescript-eslint/no-unused-vars": "off",
+  "unused-imports/no-unused-imports-ts": "error",
+  "unused-imports/no-unused-vars-ts": [
+   "warn",
+   { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" },
+  ],
+ }
 }
 ```
 
