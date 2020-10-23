@@ -1,39 +1,35 @@
 {
-  "name": "eslint-plugin-unused-imports",
-  "version": "0.1.1",
-  "description": "Report and remove unused es6 modules",
-  "keywords": [
-    "eslint",
-    "eslintplugin",
-    "eslint-plugin",
-    "import",
-    "unused",
-    "modules",
-    "autofix"
-  ],
-  "author": "Mikkel Holmer Pedersen",
-  "main": "lib/index.js",
-  "scripts": {
-    "test": "mocha tests --recursive"
-  },
-  "dependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.3.0",
-    "eslint": "^6.3.0",
-    "eslint-rule-composer": "^0.3.0",
-    "requireindex": "~1.1.0",
-    "typescript": "^3.6.3"
-  },
-  "devDependencies": {
-    "@typescript-eslint/parser": "^2.3.0",
-    "@types/eslint": "^6.1.1",
-    "@types/node": "^12.7.5",
-    "mocha": "^3.5.3"
-  },
-  "engines": {
-    "node": ">=0.10.0"
-  },
-  "license": "MIT",
-  "repository": "https://github.com/sweepline/eslint-plugin-unused-imports",
-  "homepage": "https://github.com/sweepline/eslint-plugin-unused-imports",
-  "bugs": "https://github.com/sweepline/eslint-plugin-unused-imports/issues/"
+	"name": "eslint-plugin-unused-imports",
+	"version": "1.0.0",
+	"description": "Report and remove unused es6 modules",
+	"keywords": [
+		"eslint",
+		"eslintplugin",
+		"eslint-plugin",
+		"import",
+		"unused",
+		"modules",
+		"autofix"
+	],
+	"author": "Mikkel Holmer Pedersen",
+	"main": "lib/index.js",
+	"dependencies": {
+		"@typescript-eslint/eslint-plugin": "^4.5.0",
+		"eslint": "^7.11.0",
+		"eslint-rule-composer": "^0.3.0",
+		"requireindex": "~1.2.0",
+		"typescript": "^4.0.3"
+	},
+	"devDependencies": {
+		"@typescript-eslint/parser": "^4.5.0",
+		"@types/eslint": "^7.2.4",
+		"@types/node": "^14.14.2"
+	},
+	"engines": {
+		"node": ">=0.10.0"
+	},
+	"license": "MIT",
+	"repository": "https://github.com/sweepline/eslint-plugin-unused-imports",
+	"homepage": "https://github.com/sweepline/eslint-plugin-unused-imports",
+	"bugs": "https://github.com/sweepline/eslint-plugin-unused-imports/issues/"
 }
