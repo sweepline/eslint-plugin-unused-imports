@@ -1,6 +1,6 @@
 # eslint-plugin-unused-imports
 
-Find and remove unused es6 modules. This plugin composes the rules of other plugins so be aware that the other plugins needs to report correctly for this to do so.
+Find and remove unused es6 module imports. It works by splitting up the `no-unused-vars` rule depending on it being an import statement in the AST and providing an autofix rule to remove the nodes if they are imports. This plugin composes the rule `no-unused-vars` of either the typescript or js plugin so be aware that the other plugins needs to be installed and reporting correctly for this to do so.
 
 ## Typescript
 
