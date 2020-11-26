@@ -47,7 +47,7 @@ Then configure the rules you want to use under the rules section. I can recommen
   "unused-imports/no-unused-imports": "error",
   "unused-imports/no-unused-vars": [
    "warn",
-   { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" },
+   { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
   ],
  }
 }
@@ -62,7 +62,7 @@ Or, if using TypeScript:
   "unused-imports/no-unused-imports-ts": "error",
   "unused-imports/no-unused-vars-ts": [
    "warn",
-   { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" },
+   { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
   ],
  }
 }
