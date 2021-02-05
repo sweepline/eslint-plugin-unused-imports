@@ -8,13 +8,15 @@ If running [typescript-eslint](https://github.com/typescript-eslint/typescript-e
 extension on your rules to make this also leverage type information (otherwise the autofixer will remove
 imports only used for type information). There is an example in the Usage section below.
 
+_For typescript [@typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) is also needed!_
+
 ## React
 
 If writing react code you need to install `eslint-plugin-react` and enable the two rules `react/jsx-uses-react` and `react/jsx-uses-vars`. Otherwise all imports for components will be reported unused.
 
 ## Installation
 
-You'll first need to install [ESLint](http://eslint.org):
+You'll first need to install [ESLint](http://eslint.org) (and [@typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) if using typescript):
 
 ```bash
 npm i eslint --save-dev
@@ -34,7 +36,7 @@ Add `unused-imports` to the plugins section of your `.eslintrc` configuration fi
 
 ```json
 {
- "plugins": ["unused-imports"]
+	"plugins": ["unused-imports"]
 }
 ```
 
@@ -42,14 +44,14 @@ Then configure the rules you want to use under the rules section. I can recommen
 
 ```json
 {
- "rules": {
-  "no-unused-vars": "off",
-  "unused-imports/no-unused-imports": "error",
-  "unused-imports/no-unused-vars": [
-   "warn",
-   { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
-  ],
- }
+	"rules": {
+		"no-unused-vars": "off",
+		"unused-imports/no-unused-imports": "error",
+		"unused-imports/no-unused-vars": [
+			"warn",
+			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+		]
+	}
 }
 ```
 
@@ -57,14 +59,14 @@ Or, if using TypeScript:
 
 ```json
 {
- "rules": {
-  "@typescript-eslint/no-unused-vars": "off",
-  "unused-imports/no-unused-imports-ts": "error",
-  "unused-imports/no-unused-vars-ts": [
-   "warn",
-   { "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
-  ],
- }
+	"rules": {
+		"@typescript-eslint/no-unused-vars": "off",
+		"unused-imports/no-unused-imports-ts": "error",
+		"unused-imports/no-unused-vars-ts": [
+			"warn",
+			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
+		]
+	}
 }
 ```
 
