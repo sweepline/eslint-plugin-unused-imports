@@ -2,13 +2,14 @@
 
 Find and remove unused es6 module imports. It works by splitting up the `no-unused-vars` rule depending on it being an import statement in the AST and providing an autofix rule to remove the nodes if they are imports. This plugin composes the rule `no-unused-vars` of either the typescript or js plugin so be aware that the other plugins needs to be installed and reporting correctly for this to do so.
 
+## _Important for version 1.1_
+
+The `-ts` rules are deprecated, the package now looks for `@typescript-eslint/eslint-plugin` to exist to decide between the typescript and eslint version.
+The `-ts` rule will still work, but point to the new rule instead.
+
 ## Typescript
 
-If running [typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) please use the `-ts`
-extension on your rules to make this also leverage type information (otherwise the autofixer will remove
-imports only used for type information). There is an example in the Usage section below.
-
-_For typescript [@typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) is also needed!_
+If running typescript with [@typescript-eslint](https://github.com/typescript-eslint/typescript-eslint) make sure to use both `@typescript-eslint/eslint-plugin` and `@typescript-eslint/parser`.
 
 ## React
 
@@ -45,24 +46,9 @@ Then configure the rules you want to use under the rules section. I can recommen
 ```json
 {
 	"rules": {
-		"no-unused-vars": "off",
+		"no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
 		"unused-imports/no-unused-imports": "error",
 		"unused-imports/no-unused-vars": [
-			"warn",
-			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
-		]
-	}
-}
-```
-
-Or, if using TypeScript:
-
-```json
-{
-	"rules": {
-		"@typescript-eslint/no-unused-vars": "off",
-		"unused-imports/no-unused-imports-ts": "error",
-		"unused-imports/no-unused-vars-ts": [
 			"warn",
 			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
 		]
@@ -74,5 +60,3 @@ Or, if using TypeScript:
 
 - `no-unused-imports`
 - `no-unused-vars`
-- `no-unused-imports-ts`
-- `no-unused-vars-ts`

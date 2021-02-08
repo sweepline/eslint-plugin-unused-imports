@@ -14,8 +14,7 @@
 	"author": "Mikkel Holmer Pedersen",
 	"main": "lib/index.js",
 	"dependencies": {
-		"eslint-rule-composer": "^0.3.0",
-		"requireindex": "~1.2.0"
+		"eslint-rule-composer": "^0.3.0"
 	},
 	"devDependencies": {
 		"typescript": "^4.0.3",
