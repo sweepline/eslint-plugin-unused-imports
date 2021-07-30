@@ -20,8 +20,6 @@
 		"eslint-rule-composer": "^0.3.0"
 	},
 	"devDependencies": {
-		"@types/eslint": "^7.2.4",
-		"@types/node": "^14.14.2",
 		"@typescript-eslint/eslint-plugin": "^4.14.2",
 		"@typescript-eslint/parser": "^4.14.2",
 		"eslint": "^7.19.0",
