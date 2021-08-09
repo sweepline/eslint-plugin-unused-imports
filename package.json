@@ -1,6 +1,6 @@
 {
 	"name": "eslint-plugin-unused-imports",
-	"version": "1.1.2",
+	"version": "1.1.3",
 	"description": "Report and remove unused es6 modules",
 	"keywords": [
 		"eslint",
