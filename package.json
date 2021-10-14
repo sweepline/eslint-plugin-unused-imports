@@ -40,5 +40,5 @@
 	"license": "MIT",
 	"repository": "https://github.com/sweepline/eslint-plugin-unused-imports",
 	"homepage": "https://github.com/sweepline/eslint-plugin-unused-imports",
-	"bugs": "https://github.com/sweepline/eslint-plugin-unused-imports/issues/"
+	"bugs": "https://github.com/sweepline/eslint-plugin-unused-imports/issues"
 }
