@@ -41,7 +41,7 @@ npm install eslint-plugin-unused-imports --save-dev
 
 Add `unused-imports` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
 
-```json
+```jsonc
 {
 	"plugins": ["unused-imports"]
 }
@@ -49,7 +49,7 @@ Add `unused-imports` to the plugins section of your `.eslintrc` configuration fi
 
 Then configure the rules you want to use under the rules section. I can recommend adding a check for underscores, e.g.
 
-```json
+```jsonc
 {
 	"rules": {
 		"no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
