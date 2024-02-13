@@ -4,7 +4,7 @@ Find and remove unused es6 module imports. It works by splitting up the `no-unus
 
 ## _Versions_
 
--   Version 3.x.x is for eslint 8 with @typescript-eslint/eslint-plugin 6
+-   Version 3.x.x is for eslint 8 with @typescript-eslint/eslint-plugin 6 - 7
 -   Version 2.x.x is for eslint 8 with @typescript-eslint/eslint-plugin 5
 -   Version 1.x.x is for eslint 6 and 7.
 
