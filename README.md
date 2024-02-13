@@ -43,7 +43,7 @@ Add `unused-imports` to the plugins section of your `.eslintrc` configuration fi
 
 ```jsonc
 {
-	"plugins": ["unused-imports"]
+	"plugins": [<other_plugins_you_use>, "unused-imports"]
 }
 ```
 
