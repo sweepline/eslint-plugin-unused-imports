@@ -4,9 +4,9 @@ Find and remove unused es6 module imports. It works by splitting up the `no-unus
 
 ## _Versions_
 
-* Version 3.x.x is for eslint 8 with @typescript-eslint/eslint-plugin 6
-* Version 2.x.x is for eslint 8 with @typescript-eslint/eslint-plugin 5
-* Version 1.x.x is for eslint 6 and 7.
+-   Version 3.x.x is for eslint 8 with @typescript-eslint/eslint-plugin 6
+-   Version 2.x.x is for eslint 8 with @typescript-eslint/eslint-plugin 5
+-   Version 1.x.x is for eslint 6 and 7.
 
 ## _Important for version 1.1_
 
@@ -51,18 +51,23 @@ Then configure the rules you want to use under the rules section. I can recommen
 
 ```jsonc
 {
-	"rules": {
-		"no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
-		"unused-imports/no-unused-imports": "error",
-		"unused-imports/no-unused-vars": [
-			"warn",
-			{ "vars": "all", "varsIgnorePattern": "^_", "args": "after-used", "argsIgnorePattern": "^_" }
-		]
-	}
+    "rules": {
+        "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_",
+            },
+        ],
+    },
 }
 ```
 
 ## Supported Rules
 
-- `no-unused-imports`
-- `no-unused-vars`
+-   `no-unused-imports`
+-   `no-unused-vars`
