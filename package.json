@@ -17,7 +17,7 @@
         "test": "jest"
     },
     "peerDependencies": {
-        "@typescript-eslint/eslint-plugin": "6 - 7",
+        "@typescript-eslint/eslint-plugin": "^6.0.0",
         "eslint": "8"
     },
     "peerDependenciesMeta": {
