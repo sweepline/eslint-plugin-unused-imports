@@ -40,7 +40,10 @@
         "node": "^12.22.0 || ^14.17.0 || >=16.0.0"
     },
     "license": "MIT",
-    "repository": "https://github.com/sweepline/eslint-plugin-unused-imports",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/sweepline/eslint-plugin-unused-imports.git"
+    },
     "homepage": "https://github.com/sweepline/eslint-plugin-unused-imports",
     "bugs": "https://github.com/sweepline/eslint-plugin-unused-imports/issues"
 }
