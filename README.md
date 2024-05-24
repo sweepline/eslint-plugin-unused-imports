@@ -4,14 +4,10 @@ Find and remove unused es6 module imports. It works by splitting up the `no-unus
 
 ## _Versions_
 
+-   Version 4.x.x is for eslint 9 with @typescript-eslint/eslint-plugin 8
 -   Version 3.x.x is for eslint 8 with @typescript-eslint/eslint-plugin 6 - 7
 -   Version 2.x.x is for eslint 8 with @typescript-eslint/eslint-plugin 5
 -   Version 1.x.x is for eslint 6 and 7.
-
-## _Important for version 1.1_
-
-The `-ts` rules are deprecated, the package now looks for `@typescript-eslint/eslint-plugin` to exist to decide between the typescript and eslint version.
-The `-ts` rule will still work, but point to the new rule instead.
 
 ## Typescript
 
@@ -39,19 +35,16 @@ npm install eslint-plugin-unused-imports --save-dev
 
 ## Usage
 
-Add `unused-imports` to the plugins section of your `.eslintrc` configuration file. You can omit the `eslint-plugin-` prefix:
+Add `unused-imports` to the plugins section of your `.eslintrc` configuration file.
 
 ```jsonc
-{
-	"plugins": [<other_plugins_you_use>, "unused-imports"]
-}
-```
+import unusedImports from "eslint-plugin-unused-imports";
 
-Then configure the rules you want to use under the rules section. I can recommend adding a check for underscores, e.g.
-
-```jsonc
-{
-    "rules": {
+export default [{
+    plugins: {
+        "unused-imports": unusedImports,
+    },
+    rules: {
         "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
         "unused-imports/no-unused-imports": "error",
         "unused-imports/no-unused-vars": [
@@ -62,9 +55,9 @@ Then configure the rules you want to use under the rules section. I can recommen
                 "args": "after-used",
                 "argsIgnorePattern": "^_",
             },
-        ],
-    },
-}
+        ]
+    }
+}];
 ```
 
 ## Supported Rules
