@@ -35,9 +35,9 @@ npm install eslint-plugin-unused-imports --save-dev
 
 ## Usage
 
-Add `unused-imports` to the plugins section of your `.eslintrc` configuration file.
+Add `unused-imports` to the plugins section of your `eslint.config.js` configuration file.
 
-```jsonc
+```js
 import unusedImports from "eslint-plugin-unused-imports";
 
 export default [{
