@@ -18,8 +18,8 @@
         "format": "prettier --write 'lib/**/*.js'"
     },
     "peerDependencies": {
-        "@typescript-eslint/eslint-plugin": "8",
-        "eslint": "9"
+        "@typescript-eslint/eslint-plugin": "^8.0.0-0",
+        "eslint": "^9.0.0"
     },
     "peerDependenciesMeta": {
         "@typescript-eslint/eslint-plugin": {
