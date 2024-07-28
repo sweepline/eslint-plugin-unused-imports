@@ -3,14 +3,14 @@ import { SourceCode, AST, Rule } from "eslint";
 export type Predicate = (
     problem: Rule.ReportDescriptor,
     context: Rule.RuleContext,
-) => Rule.ReportDescriptor;
+) => Rule.ReportDescriptor | false;
 
 const commaFilter = { filter: (token: AST.Token) => token.value === "," };
 const includeCommentsFilter = { includeComments: true };
 
 function makePredicate(
     isImport: boolean,
-    addFixer?: (parent: any, sourceCode: SourceCode) => any,
+    addFixer?: (parent: any, sourceCode: SourceCode) => Partial<Rule.ReportDescriptor> | boolean,
 ): Predicate {
     return (problem, context) => {
         const sourceCode = context.sourceCode || context.getSourceCode();
@@ -20,8 +20,9 @@ function makePredicate(
             // typescript-eslint >= 7.8 sets a range instead of a node
             sourceCode.getNodeByRangeIndex(sourceCode.getIndexFromLoc((problem as any).loc.start));
         return parent
-            ? /^Import(|Default|Namespace)Specifier$/.test(parent.type) == isImport &&
-                  Object.assign(problem, addFixer?.(parent, sourceCode))
+            ? /^Import(|Default|Namespace)Specifier$/.test(parent.type) == isImport
+                ? Object.assign(problem, addFixer?.(parent, sourceCode))
+                : false
             : problem;
     };
 }
@@ -56,11 +57,11 @@ export const unusedImportsPredicate = makePredicate(true, (parent, sourceCode) =
 
         // Not last specifier
         if (parent !== grandParent.specifiers[grandParent.specifiers.length - 1]) {
-            const comma = sourceCode.getTokenAfter(parent, commaFilter);
+            const comma = sourceCode.getTokenAfter(parent, commaFilter)!;
             const prevNode = sourceCode.getTokenBefore(parent)!;
 
             return [
-                fixer.removeRange([prevNode.range[1], parent.range[0]]),
+                fixer.removeRange([prevNode.range[1], parent.range![0]]),
                 fixer.remove(parent),
                 fixer.remove(comma),
             ];
