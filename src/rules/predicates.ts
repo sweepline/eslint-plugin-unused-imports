@@ -1,6 +1,9 @@
 import { SourceCode, AST, Rule } from "eslint";
 
-export type Predicate = (problem: Rule.ReportDescriptor, context: Rule.RuleContext) => boolean;
+export type Predicate = (
+    problem: Rule.ReportDescriptor,
+    context: Rule.RuleContext,
+) => Rule.ReportDescriptor;
 
 const commaFilter = { filter: (token: AST.Token) => token.value === "," };
 const includeCommentsFilter = { includeComments: true };
@@ -104,8 +107,9 @@ export function createRuleWithPredicate(
                     report: {
                         enumerable: true,
                         value(problem: Rule.ReportDescriptor) {
-                            if (predicate(problem, context)) {
-                                context.report(problem);
+                            const result = predicate(problem, context);
+                            if (result) {
+                                context.report(result);
                             }
                         },
                     },

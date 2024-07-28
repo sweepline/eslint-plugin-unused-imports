@@ -52,18 +52,16 @@ describe("no-unused-imports", () => {
                 },
             });
 
-            ruleTester.run(
+            const rule = createRuleWithPredicate(
                 "no-unused-imports",
-                createRuleWithPredicate("no-unused-imports", baseRule, unusedImportsPredicate),
-                casesJS,
+                baseRule,
+                unusedImportsPredicate,
             );
 
+            ruleTester.run("no-unused-imports", rule, casesJS);
+
             if (name !== "eslint") {
-                ruleTester.run(
-                    "no-unused-imports",
-                    createRuleWithPredicate("no-unused-imports", baseRule, unusedImportsPredicate),
-                    casesTS,
-                );
+                ruleTester.run("no-unused-imports", rule, casesTS);
             }
         });
     }
