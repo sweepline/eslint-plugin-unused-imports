@@ -1,6 +1,9 @@
 import { Rule } from "eslint";
+import { createRequire } from 'module'
 
 let rule: Rule.RuleModule | undefined;
+
+const require = createRequire(import.meta.url);
 
 export function getBaseRule(): Rule.RuleModule {
     if (!rule) {

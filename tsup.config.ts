@@ -6,4 +6,6 @@ export default defineConfig({
     dts: true,
     clean: true,
     splitting: true,
+    shims: true,
+    external: ["eslint", "@typescript-eslint/eslint-plugin"],
 });
