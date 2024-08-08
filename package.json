@@ -29,7 +29,8 @@
         "build": "tsup",
         "test": "vitest",
         "format": "prettier --write '**/*.[jt]s'",
-        "prepack": "npm run build"
+        "prepack": "npm run build",
+        "release": "bumpp && npm publish"
     },
     "peerDependencies": {
         "@typescript-eslint/eslint-plugin": "^8.0.0-0 || ^7.0.0 || ^6.0.0 || ^5.0.0",
@@ -51,6 +52,7 @@
         "@typescript-eslint/eslint-plugin": "^8.0.1",
         "@typescript-eslint/parser": "^8.0.1",
         "@typescript-eslint/utils": "^8.0.1",
+        "bumpp": "^9.4.2",
         "eslint": "^9.8.0",
         "prettier": "^3.3.3",
         "tsup": "^8.2.4",
