@@ -1,23 +1,4 @@
-RuleTester = require("eslint").RuleTester;
-const tsParser = require("@typescript-eslint/parser");
-
-const ruleTester = new RuleTester({
-    languageOptions: {
-        parser: tsParser,
-        ecmaVersion: 2015,
-        sourceType: "module",
-    },
-});
-
-const cases = require("./cases");
-
-global.eslintUnusedImportsForceLoadJSLint = "false";
-let rule;
-jest.isolateModules(() => {
-    rule = require("../rules/no-unused-imports");
-});
-ruleTester.run("no-unused-imports-js", rule, cases);
-ruleTester.run("no-unused-imports-ts", rule, {
+export default {
     valid: [
         {
             code: `
@@ -51,4 +32,4 @@ const c = a() + b + x() + y();
 `,
         },
     ],
-});
+};
