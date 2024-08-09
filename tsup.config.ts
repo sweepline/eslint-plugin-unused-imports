@@ -7,5 +7,6 @@ export default defineConfig({
     clean: true,
     splitting: true,
     shims: true,
+    cjsInterop: true,
     external: ["eslint", "@typescript-eslint/eslint-plugin"],
 });
