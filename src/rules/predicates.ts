@@ -23,7 +23,9 @@ function makePredicate(
             ? /^Import(|Default|Namespace)Specifier$/.test(parent.type) == isImport
                 ? Object.assign(problem, addFixer?.(parent, sourceCode))
                 : false
-            : problem;
+            : isImport
+              ? false
+              : problem;
     };
 }
 
