@@ -33,7 +33,7 @@
         "release": "bumpp && npm publish"
     },
     "peerDependencies": {
-        "@typescript-eslint/eslint-plugin": "^8.0.0-0 || ^7.0.0 || ^6.0.0 || ^5.0.0",
+        "@typescript-eslint/eslint-plugin": "^8.0.0 || ^7.0.0 || ^6.0.0 || ^5.0.0",
         "eslint": "^9.0.0 || ^8.0.0"
     },
     "peerDependenciesMeta": {
