@@ -43,6 +43,7 @@
     },
     "devDependencies": {
         "@types/eslint": "^9.6.1",
+        "@types/estree": "^1.0.8",
         "@typescript-eslint-v5/eslint-plugin": "npm:@typescript-eslint/eslint-plugin@^5.62.0",
         "@typescript-eslint-v5/parser": "npm:@typescript-eslint/parser@^5.62.0",
         "@typescript-eslint-v6/eslint-plugin": "npm:@typescript-eslint/eslint-plugin@^6.21.0",

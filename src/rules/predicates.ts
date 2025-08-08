@@ -1,4 +1,5 @@
 import { SourceCode, AST, Rule } from "eslint";
+import * as ESTree from "estree";
 
 export type Predicate = (
     problem: Rule.ReportDescriptor,
@@ -15,10 +16,23 @@ function makePredicate(
     return (problem, context) => {
         const sourceCode = context.sourceCode || context.getSourceCode();
 
-        const { parent } =
+        if (
+            !(problem as any).node
+            || !(problem as any).loc
+        ) {
+            throw new Error(
+                `The ESLint rule 'no-unused-vars' do not report a violation correctly.`
+                + `\n Consider reporting an issue at 'https://github.com/eslint/eslint/issues/new'`
+            )
+        }
+        const node: ESTree.Node =
             (problem as any).node ??
             // typescript-eslint >= 7.8 sets a range instead of a node
             sourceCode.getNodeByRangeIndex(sourceCode.getIndexFromLoc((problem as any).loc.start));
+        let parent: ESTree.Node | undefined;
+        if ((node as any).parent) {
+            parent = (node as any).parent;
+        }
         return parent
             ? /^Import(|Default|Namespace)Specifier$/.test(parent.type) == isImport
                 ? Object.assign(problem, addFixer?.(parent, sourceCode))
