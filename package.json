@@ -1,6 +1,6 @@
 {
     "name": "eslint-plugin-unused-imports",
-    "version": "4.1.4",
+    "version": "4.2.0",
     "type": "commonjs",
     "packageManager": "pnpm@10.14.0",
     "description": "Report and remove unused es6 modules",
