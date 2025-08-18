@@ -7,9 +7,7 @@ const require = createRequire(import.meta.url);
 
 export function getBaseRule(): Rule.RuleModule {
     if (!rule) {
-        rule = getRuleFromTSLintPlugin()
-            ?? getRuleFromTSLint()
-            ?? getESLintBaseRule();
+        rule = getRuleFromTSLintPlugin() ?? getRuleFromTSLint() ?? getESLintBaseRule();
     }
     return rule!;
 }
@@ -19,13 +17,13 @@ export function getRuleFromTSLintPlugin() {
         const tslintPlugin = require("@typescript-eslint/eslint-plugin");
         return tslintPlugin.rules["no-unused-vars"];
     } catch (_) {
-        return null
+        return null;
     }
 }
 
 export function getRuleFromTSLint() {
     try {
-        const tslint = require('typescript-eslint')
+        const tslint = require("typescript-eslint");
         return tslint.plugin.rules["no-unused-vars"];
     } catch (_) {
         return null;
