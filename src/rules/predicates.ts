@@ -18,9 +18,12 @@ function isUsedInJSDoc(identifierName: string, sourceCode: SourceCode): boolean 
     // JSDoc tags that can reference identifiers
     // Pattern matches: {@link Name}, {@see Name}, @type {Name}, etc.
     const jsdocPattern = new RegExp(
-        `(?:@(?:link|linkcode|linkplain|see)\\s+${identifierName}\\b)|` + // {@link Name} or @see Name
-            `(?:\\{@(?:link|linkcode|linkplain)\\s+${identifierName}\\b\\})|` + // {@link Name}
-            `(?:[@{](?:type|typedef|param|returns?|template|augments|extends|implements)\\s+[^}]*\\b${identifierName}\\b)`, // @type {Name}, @param {Name}, etc.
+        // {@link Name} or @see Name
+        `(?:@(?:link|linkcode|linkplain|see)\\s+${identifierName}\\b)|` + 
+        // {@link Name}
+        `(?:\\{@(?:link|linkcode|linkplain)\\s+${identifierName}\\b\\})|` + 
+        // @type {Name}, @param {Name}, etc.
+        `(?:[@{](?:type|typedef|param|returns?|template|augments|extends|implements)\\s+[^}]*\\b${identifierName}\\b)`, 
     );
 
     return comments.some((comment) => {
