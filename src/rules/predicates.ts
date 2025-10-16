@@ -8,6 +8,34 @@ export type Predicate = (
 const commaFilter = { filter: (token: AST.Token) => token.value === "," };
 const includeCommentsFilter = { includeComments: true };
 
+/**
+ * Check if an identifier is referenced in JSDoc comments
+ * Looks for JSDoc tags like @link, @see, @type, etc.
+ */
+function isUsedInJSDoc(identifierName: string, sourceCode: SourceCode): boolean {
+    const comments = sourceCode.getAllComments();
+
+    // JSDoc tags that can reference identifiers
+    // Pattern matches: {@link Name}, {@see Name}, @type {Name}, etc.
+    const jsdocPattern = new RegExp(
+        // {@link Name} or @see Name
+        `(?:@(?:link|linkcode|linkplain|see)\\s+${identifierName}\\b)|` + 
+        // {@link Name}
+        `(?:\\{@(?:link|linkcode|linkplain)\\s+${identifierName}\\b\\})|` + 
+        // @type {Name}, @param {Name}, etc.
+        `(?:[@{](?:type|typedef|param|returns?|template|augments|extends|implements)\\s+[^}]*\\b${identifierName}\\b)`, 
+    );
+
+    return comments.some((comment) => {
+        // Only check block comments (/* ... */) as JSDoc uses block comment syntax
+        if (comment.type !== "Block") {
+            return false;
+        }
+
+        return jsdocPattern.test(comment.value);
+    });
+}
+
 function makePredicate(
     isImport: boolean,
     addFixer?: (parent: any, sourceCode: SourceCode) => Partial<Rule.ReportDescriptor> | boolean,
@@ -15,10 +43,22 @@ function makePredicate(
     return (problem, context) => {
         const sourceCode = context.sourceCode || context.getSourceCode();
 
-        const { parent } =
+        const node =
             (problem as any).node ??
             // typescript-eslint >= 7.8 sets a range instead of a node
             sourceCode.getNodeByRangeIndex(sourceCode.getIndexFromLoc((problem as any).loc.start));
+
+        const { parent } = node;
+
+        // Check if this is an import and if it's used in JSDoc comments
+        if (parent && /^Import(|Default|Namespace)Specifier$/.test(parent.type) && isImport) {
+            const identifierName = node.name;
+            if (identifierName && isUsedInJSDoc(identifierName, sourceCode)) {
+                // Don't report if used in JSDoc
+                return false;
+            }
+        }
+
         return parent
             ? /^Import(|Default|Namespace)Specifier$/.test(parent.type) == isImport
                 ? Object.assign(problem, addFixer?.(parent, sourceCode))

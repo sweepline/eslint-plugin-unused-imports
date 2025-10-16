@@ -9,6 +9,48 @@ import y from "package";
 const c = a() + b + x() + y();
 `,
         },
+        {
+            code: `
+import { NoAuthenticationGuard } from "./no-authentication.guard";
+import { JwtAuthenticationGuard } from "./jwt-authentication.guard";
+
+/**
+ * You can reference {@link NoAuthenticationGuard} instead.
+ * It's recommended to use the {@link JwtAuthenticationGuard}.
+ */
+const LOCAL_ENVIRONMENT_AUTHENTICATION_GUARD = JwtAuthenticationGuard;
+`,
+        },
+        {
+            code: `
+import { SomeClass } from "./some-class";
+
+/**
+ * @see SomeClass
+ */
+const example = "test";
+`,
+        },
+        {
+            code: `
+import { MyType } from "./types";
+
+/**
+ * @type {MyType}
+ */
+let value;
+`,
+        },
+        {
+            code: `
+import { Config } from "./config";
+
+/**
+ * @param {Config} config - The configuration object
+ */
+function setup(config) {}
+`,
+        },
     ],
 
     invalid: [
@@ -86,6 +128,26 @@ import y from "package";
  */
 const c = 4;
 console.log(y);
+`,
+        },
+        {
+            code: `
+import { UnusedClass } from "./unused";
+import { UsedInJSDoc } from "./used";
+
+/**
+ * Reference to {@link UsedInJSDoc}
+ */
+const example = "test";
+`,
+            errors: ["'UnusedClass' is defined but never used."],
+            output: `
+import { UsedInJSDoc } from "./used";
+
+/**
+ * Reference to {@link UsedInJSDoc}
+ */
+const example = "test";
 `,
         },
     ],
