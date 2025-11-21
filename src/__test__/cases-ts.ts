@@ -58,7 +58,7 @@ const c = a() + b + x() + y();
             output: `
 import x from "package";
 import { a, b } from "./utils";
-import y from "package";
+import y from "this should also break the test";
 
 const c = a() + b + x() + y();
 `,
