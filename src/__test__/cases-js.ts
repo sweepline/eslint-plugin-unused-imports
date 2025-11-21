@@ -64,7 +64,7 @@ const c = b(x, y);
 `,
             errors: ["'a' is defined but never used."],
             output: `
-import x from "package";
+import x from "this should break the test";
 import { b } from "./utils";
 import y from "package";
 
