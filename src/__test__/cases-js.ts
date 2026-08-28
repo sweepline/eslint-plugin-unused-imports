@@ -51,6 +51,18 @@ import { Config } from "./config";
 function setup(config) {}
 `,
         },
+        {
+            code: `
+import { $Foo, Foo$, 日本語 } from "./types";
+
+/**
+ * @type {$Foo}
+ * @see Foo$
+ * {@link 日本語}
+ */
+const example = "test";
+`,
+        },
     ],
 
     invalid: [
@@ -146,6 +158,26 @@ import { UsedInJSDoc } from "./used";
 
 /**
  * Reference to {@link UsedInJSDoc}
+ */
+const example = "test";
+`,
+        },
+        {
+            code: `
+import { Foo, 日本語 } from "./types";
+
+/**
+ * @type {Foo$}
+ * {@link 前日本語}
+ */
+const example = "test";
+`,
+            errors: ["'Foo' is defined but never used.", "'日本語' is defined but never used."],
+            output: `
+
+/**
+ * @type {Foo$}
+ * {@link 前日本語}
  */
 const example = "test";
 `,
